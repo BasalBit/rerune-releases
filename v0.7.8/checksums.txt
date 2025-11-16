@@ -1,0 +1,4 @@
+c0d4eed271921f56d831ac8d902bb8b29dfc8938a3339f8f6e38140cc546b9d7  rerune_0.7.8_darwin_amd64.tar.gz
+c63d9f049f8514d83ad6a3015ce04db8b863a2b92c81c1551f549ed1bc88cf71  rerune_0.7.8_darwin_arm64.tar.gz
+44690ca54cd8a1056e970982ad4d5e91a6227febc95f95ffbfe9049a194f2f31  rerune_0.7.8_linux_amd64.tar.gz
+c258f493ba52fb4216f41e24cb6f737539f2f546eee7744b2be1d889e649d1cf  rerune_0.7.8_linux_arm64.tar.gz
