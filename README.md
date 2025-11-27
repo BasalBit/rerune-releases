@@ -8,10 +8,10 @@ Pick the version you need and browse the folder to download the archive for your
 
 | Version | Download folder |
 | --- | --- |
-| v0.8.0 | [./v0.8.0/](./v0.8.0/) |
-| v0.7.8 | [./v0.7.8/](./v0.7.8/) |
-| v0.7.7 | [./v0.7.7/](./v0.7.7/) |
-| v0.7.5 | [./v0.7.5/](./v0.7.5/) |
+| v0.8.0 | [./v0.8.0/](https://github.com/BasalBit/rerune-releases/tree/main/v0.8.0/) |
+| v0.7.8 | [./v0.7.8/](https://github.com/BasalBit/rerune-releases/tree/main/v0.7.8/) |
+| v0.7.7 | [./v0.7.7/](https://github.com/BasalBit/rerune-releases/tree/main/v0.7.7/) |
+| v0.7.5 | [./v0.7.5/](https://github.com/BasalBit/rerune-releases/tree/main/v0.7.5/) |
 
 > Need an older build? Just add its folder to the URL (for example, `https://github.com/BasalBit/rerune-releases/tree/main/v0.8.0`) and the artifacts will be listed if available.
 
