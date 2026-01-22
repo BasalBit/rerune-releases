@@ -33,6 +33,8 @@ Pick the version you need and browse the folder to download the archive for your
 - `rerune_<version>_linux_arm64.tar.gz` – Linux ARM64 binaries.
 - `rerune_<version>_darwin_amd64.tar.gz` – macOS Intel binaries.
 - `rerune_<version>_darwin_arm64.tar.gz` – macOS Apple Silicon binaries.
+- `rerune_<version>_windows_amd64.tar.gz` – Windows x86_64 binaries.
+- `rerune_<version>_windows_arm64.tar.gz` – Windows ARM64 binaries.
 - `checksums.txt` – SHA256 checksums for all artifacts in that release.
 
 ## Verify the Download (Recommended)
