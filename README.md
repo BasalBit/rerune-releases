@@ -12,6 +12,7 @@ Pick the version you need and browse the folder to download the archive for your
 
 | Version | Download folder |
 | --- | --- |
+| v1.0.0 | [./v1.0.0/](https://github.com/BasalBit/rerune-releases/tree/main/v1.0.0/) |
 | v0.14.6 | [./v0.14.6/](https://github.com/BasalBit/rerune-releases/tree/main/v0.14.6/) |
 | v0.14.5 | [./v0.14.5/](https://github.com/BasalBit/rerune-releases/tree/main/v0.14.5/) |
 | v0.14.4 | [./v0.14.4/](https://github.com/BasalBit/rerune-releases/tree/main/v0.14.4/) |
