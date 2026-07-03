@@ -25,11 +25,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Use GitHub Actions for Pages
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: gh api -X PUT "repos/${GITHUB_REPOSITORY}/pages" -f build_type=workflow > /dev/null
-
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
