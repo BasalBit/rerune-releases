@@ -19,18 +19,6 @@ Pick the version you need and browse the folder to download the archive for your
 | v0.14.3 | [./v0.14.3/](https://github.com/BasalBit/rerune-releases/tree/main/v0.14.3/) |
 | v0.14.2 | [./v0.14.2/](https://github.com/BasalBit/rerune-releases/tree/main/v0.14.2/) |
 | v0.14.1 | [./v0.14.1/](https://github.com/BasalBit/rerune-releases/tree/main/v0.14.1/) |
-| v0.14.0 | [./v0.14.0/](https://github.com/BasalBit/rerune-releases/tree/main/v0.14.0/) |
-| v0.13.2 | [./v0.13.2/](https://github.com/BasalBit/rerune-releases/tree/main/v0.13.2/) |
-| v0.13.1 | [./v0.13.1/](https://github.com/BasalBit/rerune-releases/tree/main/v0.13.1/) |
-| v0.13.0 | [./v0.13.0/](https://github.com/BasalBit/rerune-releases/tree/main/v0.13.0/) |
-| v0.12.3 | [./v0.12.3/](https://github.com/BasalBit/rerune-releases/tree/main/v0.12.3/) |
-| v0.12.2 | [./v0.12.2/](https://github.com/BasalBit/rerune-releases/tree/main/v0.12.2/) |
-| v0.12.1 | [./v0.12.1/](https://github.com/BasalBit/rerune-releases/tree/main/v0.12.1/) |
-| v0.12.0 | [./v0.12.0/](https://github.com/BasalBit/rerune-releases/tree/main/v0.12.0/) |
-| v0.11.0 | [./v0.11.0/](https://github.com/BasalBit/rerune-releases/tree/main/v0.11.0/) |
-| v0.10.2 | [./v0.10.2/](https://github.com/BasalBit/rerune-releases/tree/main/v0.10.2/) |
-| v0.10.1 | [./v0.10.1/](https://github.com/BasalBit/rerune-releases/tree/main/v0.10.1/) |
-| v0.10.0 | [./v0.10.0/](https://github.com/BasalBit/rerune-releases/tree/main/v0.10.0/) |
 
 > Need an older build? Just add its folder to the URL (for example, `https://github.com/BasalBit/rerune-releases/tree/main/v0.12.0`) and the artifacts will be listed if available.
 
