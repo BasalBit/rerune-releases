@@ -1,0 +1,851 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Download the latest Rerune CLI builds for Linux, macOS, and Windows.">
+    <title>Rerune Release Downloads</title>
+    <link rel="icon" href="https://rerune.io/favicon.ico">
+    <style>
+      :root {
+        --bg-from: #060b18;
+        --bg-via: #08101f;
+        --bg-to: #0d1324;
+        --panel: rgba(12, 22, 41, 0.74);
+        --panel-strong: rgba(15, 27, 51, 0.92);
+        --border: rgba(148, 163, 184, 0.18);
+        --border-strong: rgba(251, 191, 36, 0.4);
+        --text: #f8fafc;
+        --muted: #aab8cf;
+        --soft: #7f8ba3;
+        --brand: #f6b62d;
+        --brand-2: #f05252;
+        --brand-text: #1d1404;
+        --shadow: 0 32px 90px -50px rgba(0, 0, 0, 0.9);
+        color-scheme: dark;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          radial-gradient(900px circle at 10% 8%, rgba(246, 182, 45, 0.14), transparent 58%),
+          radial-gradient(700px circle at 88% 12%, rgba(240, 82, 82, 0.11), transparent 62%),
+          radial-gradient(1100px circle at 50% 120%, rgba(246, 182, 45, 0.08), transparent 64%),
+          linear-gradient(180deg, var(--bg-from), var(--bg-via) 42%, var(--bg-to));
+        color: var(--text);
+        line-height: 1.5;
+      }
+
+      body::before {
+        position: fixed;
+        inset: 0;
+        z-index: -2;
+        content: "";
+        background-image:
+          radial-gradient(circle at 18% 28%, rgba(251, 191, 36, 0.22) 0 2px, transparent 3px),
+          radial-gradient(circle at 72% 62%, rgba(248, 113, 113, 0.15) 0 2px, transparent 3px);
+        background-size: 140px 140px, 190px 190px;
+        opacity: 0.28;
+        pointer-events: none;
+      }
+
+      body::after {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        content: "";
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px), linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+        background-size: 80px 80px;
+        mask-image: linear-gradient(to bottom, black, transparent 78%);
+        pointer-events: none;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+      .page {
+        width: min(1160px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 28px 0 64px;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 14px 0 34px;
+      }
+
+      .brandmark {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+      }
+
+      .brandmark img {
+        width: 36px;
+        height: 36px;
+        border-radius: 12px;
+        box-shadow: 0 18px 34px -20px rgba(246, 182, 45, 0.9);
+      }
+
+      .brandmark span {
+        font-weight: 800;
+        letter-spacing: -0.04em;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .nav-links a,
+      .pill-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 42px;
+        padding: 0 17px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        background: rgba(8, 16, 31, 0.66);
+        color: var(--muted);
+        font-size: 0.9rem;
+        font-weight: 700;
+        text-decoration: none;
+        transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, color 180ms ease;
+      }
+
+      .nav-links a:hover,
+      .pill-link:hover {
+        transform: translateY(1px);
+        border-color: rgba(246, 182, 45, 0.42);
+        background: rgba(246, 182, 45, 0.1);
+        color: var(--text);
+      }
+
+      .hero {
+        position: relative;
+        isolation: isolate;
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
+        gap: 54px;
+        align-items: center;
+        min-height: 620px;
+        padding: 54px 0 72px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        margin: 0 0 22px;
+        padding: 7px 12px;
+        border: 1px solid rgba(246, 182, 45, 0.24);
+        border-radius: 999px;
+        background: rgba(246, 182, 45, 0.08);
+        color: #f9d989;
+        font-size: 0.8rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before {
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: var(--brand);
+        box-shadow: 0 0 24px rgba(246, 182, 45, 0.85);
+        content: "";
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 780px;
+        margin-bottom: 22px;
+        font-size: clamp(3.2rem, 8vw, 7.6rem);
+        line-height: 0.9;
+        letter-spacing: -0.085em;
+      }
+
+      .lead {
+        max-width: 690px;
+        margin-bottom: 32px;
+        color: var(--muted);
+        font-size: clamp(1.05rem, 2vw, 1.3rem);
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-bottom: 32px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 50px;
+        padding: 0 24px;
+        border: 1px solid transparent;
+        border-radius: 999px;
+        font-weight: 800;
+        text-decoration: none;
+        transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease, border-color 180ms ease;
+      }
+
+      .button.primary {
+        background: var(--brand);
+        color: var(--brand-text);
+        box-shadow: 0 20px 48px -22px rgba(246, 182, 45, 0.95);
+      }
+
+      .button.secondary {
+        border-color: var(--border);
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--text);
+      }
+
+      .button:hover {
+        transform: translateY(1px);
+      }
+
+      .button.primary:hover {
+        background: #f8c453;
+        box-shadow: 0 24px 54px -22px rgba(246, 182, 45, 1);
+      }
+
+      .button.secondary:hover {
+        border-color: rgba(246, 182, 45, 0.36);
+        background: rgba(246, 182, 45, 0.09);
+      }
+
+      .meta-strip {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .meta-strip span {
+        padding: 8px 11px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.035);
+        color: var(--soft);
+        font-size: 0.86rem;
+        font-weight: 700;
+      }
+
+      .release-console {
+        position: relative;
+        min-height: 520px;
+      }
+
+      .orb {
+        position: absolute;
+        inset: 5% 2% auto auto;
+        width: 330px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background:
+          radial-gradient(circle at 34% 30%, rgba(255, 255, 255, 0.42), transparent 0 14%),
+          radial-gradient(circle at 35% 32%, rgba(246, 182, 45, 0.9), transparent 0 34%),
+          radial-gradient(circle at 58% 58%, rgba(240, 82, 82, 0.68), transparent 0 28%),
+          radial-gradient(circle at 48% 46%, rgba(246, 182, 45, 0.32), transparent 0 66%);
+        filter: blur(0.1px);
+        opacity: 0.85;
+        animation: float 7s ease-in-out infinite;
+      }
+
+      .download-card {
+        position: absolute;
+        inset: 32px 0 auto auto;
+        z-index: 2;
+        width: min(100%, 480px);
+        padding: 22px;
+        border: 1px solid var(--border);
+        border-radius: 32px;
+        background: linear-gradient(145deg, rgba(15, 27, 51, 0.94), rgba(10, 18, 34, 0.78));
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(18px);
+      }
+
+      .download-card::before {
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background: linear-gradient(135deg, rgba(246, 182, 45, 0.24), transparent 34%, rgba(240, 82, 82, 0.16));
+        content: "";
+        mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+        mask-composite: exclude;
+        padding: 1px;
+        pointer-events: none;
+      }
+
+      .card-topline {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 18px;
+      }
+
+      .card-title {
+        margin: 0;
+        font-size: 1rem;
+        letter-spacing: -0.03em;
+      }
+
+      .version-badge {
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: rgba(246, 182, 45, 0.12);
+        color: #ffd987;
+        font-size: 0.78rem;
+        font-weight: 900;
+      }
+
+      .download-grid {
+        display: grid;
+        gap: 10px;
+      }
+
+      .download-link {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        gap: 12px;
+        align-items: center;
+        padding: 13px 14px;
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.035);
+        text-decoration: none;
+        transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+      }
+
+      .download-link:hover {
+        transform: translateY(-2px);
+        border-color: rgba(246, 182, 45, 0.42);
+        background: rgba(246, 182, 45, 0.08);
+      }
+
+      .icon {
+        display: grid;
+        width: 38px;
+        height: 38px;
+        place-items: center;
+        border-radius: 14px;
+        background: rgba(246, 182, 45, 0.12);
+        color: #ffd987;
+        font-size: 0.78rem;
+        font-weight: 900;
+      }
+
+      .download-link strong {
+        display: block;
+        overflow: hidden;
+        color: var(--text);
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .download-link small {
+        color: var(--soft);
+        font-weight: 700;
+      }
+
+      .download-link .arrow {
+        color: var(--brand);
+        font-weight: 900;
+      }
+
+      .floating-note {
+        position: absolute;
+        right: 34px;
+        bottom: 10px;
+        z-index: 1;
+        width: min(78%, 320px);
+        padding: 18px;
+        border: 1px solid rgba(240, 82, 82, 0.2);
+        border-radius: 26px;
+        background: rgba(19, 15, 26, 0.78);
+        box-shadow: 0 24px 68px -44px rgba(240, 82, 82, 0.9);
+        transform: rotate(3deg);
+      }
+
+      .floating-note p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      section {
+        padding: 42px 0;
+      }
+
+      .section-heading {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 22px;
+      }
+
+      h2 {
+        margin-bottom: 0;
+        font-size: clamp(2rem, 4vw, 3.65rem);
+        line-height: 0.95;
+        letter-spacing: -0.07em;
+      }
+
+      .section-heading p {
+        max-width: 430px;
+        margin-bottom: 0;
+        color: var(--muted);
+      }
+
+      .version-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .version-card {
+        display: flex;
+        min-height: 190px;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 20px;
+        border: 1px solid var(--border);
+        border-radius: 28px;
+        background: var(--panel);
+        box-shadow: 0 22px 70px -52px rgba(0, 0, 0, 0.85);
+        text-decoration: none;
+        transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+      }
+
+      .version-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(246, 182, 45, 0.32);
+        background: var(--panel-strong);
+      }
+
+      .version-card.featured {
+        border-color: var(--border-strong);
+        background:
+          linear-gradient(145deg, rgba(246, 182, 45, 0.14), rgba(240, 82, 82, 0.08)),
+          var(--panel-strong);
+      }
+
+      .version-card strong {
+        display: block;
+        font-size: 1.8rem;
+        letter-spacing: -0.06em;
+      }
+
+      .version-card span {
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .version-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 26px;
+      }
+
+      .mini-link {
+        display: inline-flex;
+        padding: 8px 10px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.055);
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      .mini-link:hover {
+        color: var(--text);
+        background: rgba(246, 182, 45, 0.12);
+      }
+
+      .verify-panel {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(280px, 0.65fr);
+        gap: 24px;
+        align-items: center;
+        padding: 28px;
+        border: 1px solid var(--border);
+        border-radius: 34px;
+        background:
+          radial-gradient(600px circle at 8% 10%, rgba(246, 182, 45, 0.12), transparent 52%),
+          rgba(8, 16, 31, 0.8);
+      }
+
+      .verify-panel h2 {
+        margin-bottom: 14px;
+      }
+
+      .verify-panel p {
+        margin-bottom: 0;
+        color: var(--muted);
+      }
+
+      code {
+        display: block;
+        overflow-x: auto;
+        padding: 18px;
+        border: 1px solid rgba(246, 182, 45, 0.18);
+        border-radius: 20px;
+        background: #050915;
+        color: #f9d989;
+        font: 800 0.94rem/1.5 "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+        white-space: nowrap;
+      }
+
+      footer {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        padding-top: 30px;
+        color: var(--soft);
+        font-size: 0.92rem;
+      }
+
+      footer a {
+        color: var(--muted);
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        color: var(--brand);
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translate3d(0, 0, 0) scale(1);
+        }
+
+        50% {
+          transform: translate3d(-14px, 18px, 0) scale(1.04);
+        }
+      }
+
+      @media (max-width: 920px) {
+        .hero,
+        .verify-panel {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          min-height: auto;
+          gap: 28px;
+          padding-top: 28px;
+        }
+
+        .release-console {
+          min-height: 580px;
+        }
+
+        .download-card {
+          left: 0;
+          right: 0;
+          margin: 0 auto;
+        }
+
+        .version-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .section-heading {
+          display: block;
+        }
+
+        .section-heading p {
+          margin-top: 12px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .page {
+          width: min(100% - 24px, 1160px);
+          padding-top: 16px;
+        }
+
+        .nav {
+          align-items: flex-start;
+          flex-direction: column;
+          padding-bottom: 18px;
+        }
+
+        .nav-links {
+          width: 100%;
+          overflow-x: auto;
+          padding-bottom: 4px;
+        }
+
+        .nav-links a {
+          flex: 0 0 auto;
+        }
+
+        .actions .button {
+          width: 100%;
+        }
+
+        .release-console {
+          min-height: auto;
+        }
+
+        .orb,
+        .floating-note {
+          display: none;
+        }
+
+        .download-card {
+          position: relative;
+          inset: auto;
+        }
+
+        .download-link {
+          grid-template-columns: auto minmax(0, 1fr);
+        }
+
+        .download-link .arrow {
+          display: none;
+        }
+
+        .version-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .verify-panel {
+          padding: 22px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brandmark" href="https://rerune.io/">
+          <img src="https://rerune.io/logo.png" alt="Rerune logo">
+          <span>ReRune</span>
+        </a>
+        <div class="nav-links">
+          <a href="#latest">Latest</a>
+          <a href="#versions">Versions</a>
+          <a href="#verify">Verify</a>
+          <a href="https://rerune.io/">rerune.io</a>
+        </div>
+      </nav>
+
+      <main>
+        <section class="hero" aria-labelledby="page-title">
+          <div>
+            <p class="eyebrow">Release downloads</p>
+            <h1 id="page-title">Ship the Rerune CLI anywhere.</h1>
+            <p class="lead">Grab release archives for Linux, macOS, and Windows. The latest channel stays pinned to the newest build, while versioned folders preserve every published artifact.</p>
+            <div class="actions">
+              <a class="button primary" href="latest/rerune_latest_linux_amd64.tar.gz">Download Linux x86_64</a>
+              <a class="button secondary" href="#latest">Choose platform</a>
+            </div>
+            <div class="meta-strip" aria-label="Release metadata">
+              <span>Latest: v1.0.0</span>
+              <span>SHA256 checksums</span>
+              <span>Linux, macOS, Windows</span>
+            </div>
+          </div>
+
+          <div class="release-console" id="latest" aria-label="Latest downloads">
+            <div class="orb" aria-hidden="true"></div>
+            <div class="download-card">
+              <div class="card-topline">
+                <h2 class="card-title">Latest build</h2>
+                <span class="version-badge">v1.0.0</span>
+              </div>
+              <div class="download-grid">
+                <a class="download-link" href="latest/rerune_latest_linux_amd64.tar.gz">
+                  <span class="icon">LX</span>
+                  <span><strong>Linux x86_64</strong><small>rerune_latest_linux_amd64.tar.gz</small></span>
+                  <span class="arrow">GET</span>
+                </a>
+                <a class="download-link" href="latest/rerune_latest_linux_arm64.tar.gz">
+                  <span class="icon">LA</span>
+                  <span><strong>Linux ARM64</strong><small>rerune_latest_linux_arm64.tar.gz</small></span>
+                  <span class="arrow">GET</span>
+                </a>
+                <a class="download-link" href="latest/rerune_latest_darwin_amd64.tar.gz">
+                  <span class="icon">MI</span>
+                  <span><strong>macOS Intel</strong><small>rerune_latest_darwin_amd64.tar.gz</small></span>
+                  <span class="arrow">GET</span>
+                </a>
+                <a class="download-link" href="latest/rerune_latest_darwin_arm64.tar.gz">
+                  <span class="icon">MS</span>
+                  <span><strong>macOS Apple Silicon</strong><small>rerune_latest_darwin_arm64.tar.gz</small></span>
+                  <span class="arrow">GET</span>
+                </a>
+                <a class="download-link" href="latest/rerune_latest_windows_amd64.tar.gz">
+                  <span class="icon">WX</span>
+                  <span><strong>Windows x86_64</strong><small>rerune_latest_windows_amd64.tar.gz</small></span>
+                  <span class="arrow">GET</span>
+                </a>
+                <a class="download-link" href="latest/rerune_latest_windows_arm64.tar.gz">
+                  <span class="icon">WA</span>
+                  <span><strong>Windows ARM64</strong><small>rerune_latest_windows_arm64.tar.gz</small></span>
+                  <span class="arrow">GET</span>
+                </a>
+              </div>
+            </div>
+            <div class="floating-note" aria-hidden="true">
+              <p>Checksum-first releases for teams that automate installs through CI, shell scripts, and deployment images.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="versions" aria-labelledby="versions-title">
+          <div class="section-heading">
+            <h2 id="versions-title">Pinned versions.</h2>
+            <p>Use a fixed version when your deployment process needs repeatable binaries. Browse the GitHub folder for all platform archives.</p>
+          </div>
+
+          <div class="version-grid">
+            <article class="version-card featured">
+              <div>
+                <strong>v1.0.0</strong>
+                <span>Current stable release.</span>
+              </div>
+              <div class="version-actions">
+                <a class="mini-link" href="https://github.com/BasalBit/rerune-releases/tree/main/v1.0.0/">Browse artifacts</a>
+                <a class="mini-link" href="v1.0.0/checksums.txt">Checksums</a>
+              </div>
+            </article>
+
+            <article class="version-card">
+              <div>
+                <strong>v0.14.6</strong>
+                <span>Previous stable line.</span>
+              </div>
+              <div class="version-actions">
+                <a class="mini-link" href="https://github.com/BasalBit/rerune-releases/tree/main/v0.14.6/">Browse artifacts</a>
+                <a class="mini-link" href="v0.14.6/checksums.txt">Checksums</a>
+              </div>
+            </article>
+
+            <article class="version-card">
+              <div>
+                <strong>v0.14.5</strong>
+                <span>Archived release.</span>
+              </div>
+              <div class="version-actions">
+                <a class="mini-link" href="https://github.com/BasalBit/rerune-releases/tree/main/v0.14.5/">Browse artifacts</a>
+                <a class="mini-link" href="v0.14.5/checksums.txt">Checksums</a>
+              </div>
+            </article>
+
+            <article class="version-card">
+              <div>
+                <strong>v0.14.4</strong>
+                <span>Archived release.</span>
+              </div>
+              <div class="version-actions">
+                <a class="mini-link" href="https://github.com/BasalBit/rerune-releases/tree/main/v0.14.4/">Browse artifacts</a>
+                <a class="mini-link" href="v0.14.4/checksums.txt">Checksums</a>
+              </div>
+            </article>
+
+            <article class="version-card">
+              <div>
+                <strong>v0.14.3</strong>
+                <span>Archived release.</span>
+              </div>
+              <div class="version-actions">
+                <a class="mini-link" href="https://github.com/BasalBit/rerune-releases/tree/main/v0.14.3/">Browse artifacts</a>
+                <a class="mini-link" href="v0.14.3/checksums.txt">Checksums</a>
+              </div>
+            </article>
+
+            <article class="version-card">
+              <div>
+                <strong>v0.14.2</strong>
+                <span>Archived release.</span>
+              </div>
+              <div class="version-actions">
+                <a class="mini-link" href="https://github.com/BasalBit/rerune-releases/tree/main/v0.14.2/">Browse artifacts</a>
+                <a class="mini-link" href="v0.14.2/checksums.txt">Checksums</a>
+              </div>
+            </article>
+
+            <article class="version-card">
+              <div>
+                <strong>v0.14.1</strong>
+                <span>Archived release.</span>
+              </div>
+              <div class="version-actions">
+                <a class="mini-link" href="https://github.com/BasalBit/rerune-releases/tree/main/v0.14.1/">Browse artifacts</a>
+                <a class="mini-link" href="v0.14.1/checksums.txt">Checksums</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="verify" aria-labelledby="verify-title">
+          <div class="verify-panel">
+            <div>
+              <h2 id="verify-title">Trust, then verify.</h2>
+              <p>Download the checksum file from the same release folder as your archive, then verify the SHA256 digest before installing.</p>
+            </div>
+            <code>shasum -a 256 -c checksums.txt</code>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <span>Rerune release distribution.</span>
+        <span><a href="README.md">README</a> / <a href="latest/checksums.txt">latest checksums</a> / <a href="https://github.com/BasalBit/rerune-releases">GitHub</a></span>
+      </footer>
+    </div>
+  </body>
+</html>
