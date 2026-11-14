@@ -13,6 +13,7 @@ Pick the version you need and browse the folder to download the archive for your
 <!-- versions:start -->
 | Version | Download folder |
 | --- | --- |
+| v1.0.23 | [./v1.0.23/](https://github.com/BasalBit/rerune-releases/tree/main/v1.0.23/) |
 | v1.0.22 | [./v1.0.22/](https://github.com/BasalBit/rerune-releases/tree/main/v1.0.22/) |
 | v1.0.21 | [./v1.0.21/](https://github.com/BasalBit/rerune-releases/tree/main/v1.0.21/) |
 | v1.0.20 | [./v1.0.20/](https://github.com/BasalBit/rerune-releases/tree/main/v1.0.20/) |
